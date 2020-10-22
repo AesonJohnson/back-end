@@ -1,37 +1,21 @@
 module.exports = {
   development: {
-    client: "sqlite3",
-    connection: {
-      filename: "./data/budget.db3",
-    },
+    client: 'sqlite3',
+    connection: { filename: './database/auth.db3' },
     useNullAsDefault: true,
     migrations: {
-      directory: "./data/migrations",
-      tableName: "knex_migrations",
+      directory: './database/migrations',
+      tableName: 'dbmigrations',
     },
-    seeds: {
-      directory: "./data/seeds",
-    },
+    seeds: { directory: './database/seeds' },
   },
-
-  production: {
-    client: "pg",
+  testing: {
+    client: "sqlite3",
     connection: {
-      host: "localhost",
-      database: "the name of the database to use in the postgres server",
-      user: "a user that has access to the server and database", 
-      password: "the password for the user",
+      filename: "./database/auth.db3",
     },
-    pool: {
-      min: 2,
-      max: 10,
-    },
-    migrations: {
-      directory: "./data/migrations",
-      tableName: "knex_migrations",
-    },
-    seeds: {
-      directory: "./data/seeds",
-    },
+    useNullAsDefault: true,
+    migrations: { directory: "./database/migrations" },
+    seeds: { directory: "./database/seeds" },
   },
 };
