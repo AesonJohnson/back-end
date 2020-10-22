@@ -28,12 +28,16 @@ function update(value, id){
     return db("plants")
         .where({ id })
         .update(value)
-        .then()
+        .then(id => {
+            return findById(id)
+        })
 
 }
 
-function delete(value){
-
+function remove(id){
+    return db("plants")
+    .where({ id })
+        .del()
 }
 
 module.exports = {
@@ -42,5 +46,5 @@ module.exports = {
     findById,
     add,
     update,
-    delete
+    remove
   };
