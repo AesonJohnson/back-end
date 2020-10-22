@@ -23,3 +23,9 @@
 | phone number | integer | no | yes | User's phone number |
 
 #### Plants
+| Name | Type | Required | Unique | Notes | 
+| --- | --- | --- | --- | --- |
+| id | integer | yes | yes | Plant's ID |
+| plantname | string | yes | yes | Plant name (common) |
+| plantspecies | string | yes | no | Plant name (scientific) |
+| waterschedule | string | yes | no | Plant's water schedule |
