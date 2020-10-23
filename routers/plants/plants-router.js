@@ -16,7 +16,7 @@ router.get("/", (req, res) => {
 });
 
 // retrieve specific plant (by id)
-router.get("/:id", restricted, (req, res) => {
+router.get("/:id", (req, res) => {
     const id = req.params;
 
     db.findById(id)
@@ -30,7 +30,7 @@ router.get("/:id", restricted, (req, res) => {
 });
 
 // add new plant
-router.post("/", restricted, (req, res) => {
+router.post("/", (req, res) => {
     const newPlant = req.body;
 
     db.add(newPlant)
