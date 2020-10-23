@@ -4,12 +4,16 @@ const helmet = require("helmet");
 
 const db = require("../data/dbConfig.js");
 
+const authenticate = require("../routers/auth/authenticate-middleware.js");
 const authRouter = require("../routers/auth/auth-router.js");
 const plantsRouter = require("../routers/plants/plants-router.js");
 
 const server = express();
 
+server.use(helmet());
+server.use(cors());
 server.use(express.json());
+
 server.use("/api/auth", authRouter);
 server.use("/api/plants", authenticate, plantsRouter);
 
