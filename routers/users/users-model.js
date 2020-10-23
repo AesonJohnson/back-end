@@ -3,13 +3,13 @@ const db = require("../../data/dbConfig.js");
 function find(){
     return db("users")
         .select("id", "username")
-        .orderBy("id");
+        //.orderBy("id");
 };
 
 function findBy(id) {
     return db("users")
         .where(filter)
-        .orderBy("id");
+        //.orderBy("id");
 }
 
 function findById(id) {
@@ -18,12 +18,17 @@ function findById(id) {
         .first();
 }
 
-function add(value){
-    return db("users")
-        .insert(value, "id")
-        .then(id => {
-            return findById(id)
-        });
+// function add(value){
+//     return db("users")
+//         .insert(value, "id")
+//         .then(id => {
+//             return findById(id)
+//         });
+// }
+
+async function add(user){
+    const [id] = await db("users").insert(user)
+    return findById(id)
 }
 
 module.exports = {
